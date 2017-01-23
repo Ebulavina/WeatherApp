@@ -13,7 +13,6 @@ angular.module('weatherapp')
 
 		var vm = this;
 		var cities = $scope.cities = weatherappStorage.get();
-		// var cities = [];
 		$scope.$watch('cities', function () {
 			weatherappStorage.put(cities);
 		}, true);
@@ -51,22 +50,23 @@ angular.module('weatherapp')
 						var _equalName = false;
 						for (var i = 0; i < cities.length; i++) {
 							if (city.name === cities[i].name) {
-								console.log('тру');
 								_equalName = true;
 							}
 						}
 						if (_equalName === false) {
-							console.log('фолс');
 							cities.push(city);
 						}
 					} else {
 						cities.push(city);
 					}
-					console.log(cities);
 				}, function(error) {
 					console.log(error);
 				})
 			}
-		}
+		};
+
+		vm.RemoveCity = function(listCity) {
+			cities.splice(cities.indexOf(listCity), 1);
+		};
 
 	});

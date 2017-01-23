@@ -26,6 +26,9 @@ angular.module('weatherapp')
 			put: function (cities) {
 				localStorage.setItem(STORAGE_ID, JSON.stringify(cities));
 			}
+			// delete: function (city) {
+			// 	store.cities.splice(store.cities.indexOf(city), 1);
+			// }
 		};
 	})
 	.factory('weatherRequestService', function ($http) {
