@@ -1,0 +1,133 @@
+html,
+body,
+ul,
+p,
+span,
+input {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  padding-top: 70px;
+  font: 24px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.4em;
+  background-color: #fff;
+  color: #656c73;
+}
+
+.widget-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+  margin: 0 auto;
+
+  &__user-location {
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 10px;
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+  }
+}
+
+.city-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  min-width: 247px;
+  padding-left: 10px;
+  border: 1px dashed #1abc9c;
+
+  &_list {
+    border-bottom: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    height: 100%;
+    margin-left: 5px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 47px;
+    padding: 0 7px;
+    border-left: 1px dashed #1abc9c;
+
+    &_temp {
+      border: 0;
+    }
+
+    &_delete {
+      min-width: 30px;
+      cursor: pointer;
+      transition: background-color 0.15s ease-out;
+
+      span {
+        margin-top: -4px;
+        font-size: 40px;
+        transform: rotate(45deg);
+      }
+
+      &:hover {
+        background-color: rgba(26, 188, 156, 0.1);
+      }
+    }
+  }
+}
+
+.enter-city {
+  display: flex;
+  height: 40px;
+  padding-top: 20px;
+
+  &__field {
+    width: 260px;
+    height: calc(100% - 2px);
+    margin-right: 10px;
+    padding: 0 10px;
+    border: 1px solid #1abc9c;
+    font-size: 24px;
+    outline: none;
+
+    &:focus {
+      background-color: rgba(26, 188, 156, 0.1);
+    }
+  }
+
+  &__btn {
+    height: 100%;
+    width: 78px;
+    border: 0;
+    background-color: #1abc9c;
+    transition: background 0.15s ease-out;
+    color: #fff;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background-color: #16a085;
+    }
+  }
+}
+
+.cities-list {
+  width: 370px;
+  margin-top: 20px;
+  border-bottom: 1px dashed #1abc9c;
+}

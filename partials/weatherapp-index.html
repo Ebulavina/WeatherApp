@@ -1,12 +1,30 @@
-<div>
-  <div>
-    {{currentCity.name}}
+<div class="widget-weather">
+  <div class="widget-weather__user-location">
+    <span>You here:</span>
+    <div class="city-options">
+      <p>{{currentCity.name}}</p>
+      <div class="city-options__wrapper">
+        <p class="city-options__item city-options__item_temp">{{currentCity.temp}}&#176;C</p>
+        <p class="city-options__item">{{currentCity.humidity}}%</p>
+      </div>
+    </div>
   </div>
-  <input type="text" ng-model="vm.nameCity" name="text" />
-  <button id="submit" ng-click="vm.AddCity(vm.nameCity)">Add city</button>
-  <ul>
-    <li ng-repeat="city in cities track by $index" ng-click="vm.RemoveCity(city)">
-      {{city.name}}
+  <div class="enter-city">
+    <input type="text" ng-model="vm.nameCity" name="text" class="enter-city__field" />
+    <button id="submit" ng-click="vm.AddCity(vm.nameCity)" class="enter-city__btn">Add city</button>
+  </div>
+  <ul class="cities-list">
+    <li ng-repeat="city in cities track by $index">
+      <div class="city-options city-options_list">
+        <p>{{city.name}}</p>
+        <div class="city-options__wrapper">
+          <p class="city-options__item city-options__item_temp">{{city.temp}}&#176;C</p>
+          <p class="city-options__item">{{city.humidity}}%</p>
+          <p class="city-options__item city-options__item_delete" ng-click="vm.RemoveCity(city)">
+            <span>+</span>
+          </p>
+        </div>
+      </div>
     </li>
   </ul>
 </div>
