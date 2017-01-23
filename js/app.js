@@ -16,6 +16,7 @@ angular.module('weatherapp', ['ngRoute','WeatherPartials'])
 
 		var routeConfig = {
 			controller: 'weatherappCtrl',
+			controllerAs: 'vm',
 			templateUrl: '/partials/weatherapp-index.html',
 			resolve: {
 				store: ['weatherappStorage', function (weatherappStorage) {

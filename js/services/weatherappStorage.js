@@ -19,9 +19,32 @@ angular.module('weatherapp')
 
 		var STORAGE_ID = 'weatherapp-angularjs';
 
-		var store = {
-
+		return {
+			get: function () {
+				return JSON.parse(localStorage.getItem(STORAGE_ID) || '[]');
+			},
+			put: function (cities) {
+				localStorage.setItem(STORAGE_ID, JSON.stringify(cities));
+			}
 		};
+	})
+	.factory('weatherRequestService', function ($http) {
+		'use strict';
 
-		return store;
+		var apikey = '7912fc72c98b9e9e6659c3c7095a5614';
+		var weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?units=metric&appid=' + apikey;
+
+		return {
+			getWeatherByLocation: function(lat, lon) {
+				var url = weatherUrl + "&lat=" + lat + "&lon=" + lon;
+
+				return $http.get(url);
+			},
+
+			getWeatherByNameCity: function(name) {
+				var url = weatherUrl + '&q=' + name;
+
+				return $http.get(url);
+			}
+		}
 	});
